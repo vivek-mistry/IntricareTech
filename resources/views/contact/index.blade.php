@@ -42,6 +42,10 @@
             @include('contact.form')
         </x-backend.modal>
 
+        <x-backend.modal id="contactEditModal" title="Edit Contact" form="contactEditForm" action="{{ route('contact.update', ['contact' => ':id']) }}" method="POST" scrollable="false" size="modal-lg">
+            @include('contact.form')
+        </x-backend.modal>
+
 
     @endsection
 
@@ -49,6 +53,8 @@
         <script>
             var ROUTE_CONTACT_LIST = "{{ route('contact.ajax.list') }}";
             var ROUTE_CONTACT_DELETE = "{{ route('contact.destroy', ['contact' => ':id']) }}";
+            var ROUTE_CONTACT_EDIT = "{{ route('contact.edit', ['contact' => ':id']) }}";
+            var ROUTE_CONTACT_UPDATE = "{{ route('contact.update', ['contact' => ':id']) }}";
         </script>
 
         @vite(['resources/js/contact/index.js', 'resources/js/contact/add-edit.js'])

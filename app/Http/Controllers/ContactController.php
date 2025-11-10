@@ -65,4 +65,30 @@ class ContactController extends Controller
             'message' => 'Contact deleted successfully',
         ]);
     }
+
+    public function edit(Contact $contact)
+    {
+        return response()->json($contact);
+    }
+
+    public function update(Request $request, Contact $contact)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required',
+            'gender' => 'required',
+            // 'profile_image' => 'required',
+            // 'document_file' => 'required',
+            // 'contact_custom_fields' => 'required',
+        ]);
+
+        $contact = $this->contactRepository->update($contact, $request->all());
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Contact updated successfully',
+            'data' => $contact,
+        ]);
+    }
 }

@@ -28,4 +28,9 @@ class ContactRepository implements ContactRepositoryInterface
     {
         return Contact::create($data);
     }
+
+    public function update($contact, array $data) : mixed
+    {
+        return $contact->update($data);
+    }
 }
