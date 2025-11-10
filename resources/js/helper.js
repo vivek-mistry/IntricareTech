@@ -121,13 +121,11 @@ export const showConfirmationModal = function({
 
     // Create modal instance if not already created
     if (!confirmModalInstance) {
-        alert("23")
         confirmModalInstance = new bootstrap.Modal(modalElement);
     }
 
     // Remove previous click handler to avoid stacking
     $('#confirmModalBtn').off('click').on('click', function () {
-        alert(45);
         onConfirm();
         confirmModalInstance.hide();
     });
