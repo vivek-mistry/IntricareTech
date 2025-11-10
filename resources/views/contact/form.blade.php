@@ -29,8 +29,8 @@
         <div class="mb-3">
             <label for="gender" class="form-label">Gender <span class="text-danger">*</span></label>
             <select name="gender" id="gender" class="form-control">
-                <option value="male">Male</option>
-                <option value="female">Female</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
             </select>
         </div>
     </div>

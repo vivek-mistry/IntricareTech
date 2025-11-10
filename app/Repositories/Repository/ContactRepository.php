@@ -8,9 +8,16 @@ use Illuminate\Database\Eloquent\Collection;
 
 class ContactRepository implements ContactRepositoryInterface
 {
-    public function getPaginate(int $limit) : mixed
+    public function getPaginate(int $limit, ?string $search = null) : mixed
     {
         $entity = Contact::query();
+
+        $entity->when($search, function($query) use ($search) {
+            $query->where('name', 'like', "%{$search}%")
+                ->orWhere('email', 'like', "%{$search}%")
+                ->orWhere('phone', 'like', "%{$search}%")
+                ->orWhere('gender', 'like', "%{$search}%");
+        });
 
         $entity->orderBy('id', 'desc');
 

@@ -48,6 +48,7 @@
     @section('scripts')
         <script>
             var ROUTE_CONTACT_LIST = "{{ route('contact.ajax.list') }}";
+            var ROUTE_CONTACT_DELETE = "{{ route('contact.destroy', ['contact' => ':id']) }}";
         </script>
 
         @vite(['resources/js/contact/index.js', 'resources/js/contact/add-edit.js'])

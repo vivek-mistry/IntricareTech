@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
 use App\Repositories\Interface\ContactRepositoryInterface;
 use Illuminate\Http\Request;
 
@@ -19,11 +20,14 @@ class ContactController extends Controller
     }
 
     public function ajaxList(Request $request) {
-        $contacts = $this->contactRepository->getPaginate(10);
+        $contacts = $this->contactRepository->getPaginate(
+            limit : 10,
+            search : $request->search
+        );
 
         $html = view('contact.list', compact('contacts'))->render();
 
-        $pagination = $contacts->links()->render();
+        $pagination = $contacts->links('components.pagination')->render();
 
         return response()->json([
             'html' => $html,
@@ -49,6 +53,16 @@ class ContactController extends Controller
             'success' => true,
             'message' => 'Contact created successfully',
             'data' => $contact,
+        ]);
+    }
+
+    public function destroy(Contact $contact)
+    {
+        $contact->delete();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Contact deleted successfully',
         ]);
     }
 }

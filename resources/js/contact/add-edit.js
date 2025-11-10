@@ -2,6 +2,7 @@
 import { tostMessage } from ".././helper";
 
 var contactStoreForm = $('#contactStoreForm');
+var contactCreateModal = $('#contactCreateModal');
 
 contactStoreForm.on('submit', function(e) {
     e.preventDefault();
@@ -15,15 +16,14 @@ contactStoreForm.on('submit', function(e) {
         processData: false,
         contentType: false,
         success: function(response) {
-            $("#contact_model").attr("style", "display:none");
-            $(".background_overlay").attr("style", "display:none");
-            tostMessage(response.message, 'info');
+            contactCreateModal.modal("hide");
+            tostMessage(response.message, 'success');
             fetchContacts()
+            contactStoreForm.trigger("reset");
+            
         },
         error: function(error) {
             tostMessage(error.responseJSON.message, 'error');
         }
     });
-    
-    
 });

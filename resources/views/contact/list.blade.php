@@ -6,7 +6,7 @@
         <td>{{ $contact->gender }}</td>
         <td>
             <x-backend.button ui="flat" colorType="primary" type="button" label="Edit" />
-            <x-backend.button ui="flat" colorType="danger" type="button" label="Delete" />
+            <x-backend.button ui="flat" colorType="danger" type="button" label="Delete" data-contact_id="{{ $contact->id }}" class="remove_contact" />
         </td>
     </tr>
 @empty
