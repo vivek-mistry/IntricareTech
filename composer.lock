@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8ecb3cef39301be240171ebade06d9ad",
+    "content-hash": "e27ad1b28c2bd5614084063495902421",
     "packages": [
         {
             "name": "brick/math",
@@ -5822,6 +5822,87 @@
                 "source": "https://github.com/tijsverkoyen/CssToInlineStyles/tree/v2.3.0"
             },
             "time": "2024-12-21T16:25:41+00:00"
+        },
+        {
+            "name": "vivek-mistry/repository-interface",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vivek-mistry/repository-interface.git",
+                "reference": "4a78c279a44d60d74f65f1fcfd16f02c618a6bc6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vivek-mistry/repository-interface/zipball/4a78c279a44d60d74f65f1fcfd16f02c618a6bc6",
+                "reference": "4a78c279a44d60d74f65f1fcfd16f02c618a6bc6",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.2||^8.3||^8.4"
+            },
+            "require-dev": {
+                "larastan/larastan": "^2.9||^3.0",
+                "orchestra/testbench": "^10.0.0||^9.0.0",
+                "pestphp/pest": "^3.8",
+                "pestphp/pest-plugin-arch": "^3.0",
+                "pestphp/pest-plugin-laravel": "^3.0",
+                "phpstan/extension-installer": "^1.3||^2.0",
+                "phpstan/phpstan-deprecation-rules": "^1.1||^2.0",
+                "phpstan/phpstan-phpunit": "^1.3||^2.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "VivekMistry\\RepositoryInterface\\RepositoryGeneratorServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "VivekMistry\\RepositoryInterface\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Vivek Mistry",
+                    "email": "vickymistry1818@gmail.com",
+                    "role": "Laravel Developer"
+                }
+            ],
+            "description": "Laravel package for dependency injection to separate business logic.",
+            "homepage": "https://github.com/vivek-mistry/repository-interface",
+            "keywords": [
+                "clean architecture",
+                "dependency-injection",
+                "interface",
+                "laravel",
+                "laravel-repository-pattern",
+                "php",
+                "repository",
+                "repository pattern",
+                "repository-interface",
+                "repositoryinterface"
+            ],
+            "support": {
+                "issues": "https://github.com/vivek-mistry/repository-interface/issues",
+                "source": "https://github.com/vivek-mistry/repository-interface/tree/1.0.1"
+            },
+            "funding": [
+                {
+                    "url": "https://www.paypal.com/paypalme/vicky18294",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/vivek-mistry",
+                    "type": "github"
+                }
+            ],
+            "time": "2025-09-27T15:06:04+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
