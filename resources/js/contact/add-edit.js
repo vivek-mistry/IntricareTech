@@ -1,15 +1,15 @@
 
-import { showToast } from ".././helper";
+import { tostMessage } from ".././helper";
 
-var contactFormSave = $('#contact_form');
+var contactStoreForm = $('#contactStoreForm');
 
-contactFormSave.on('submit', function(e) {
+contactStoreForm.on('submit', function(e) {
     e.preventDefault();
     
     var formData = new FormData(this);
     console.log(formData)
     $.ajax({
-        url: ROUTE_CONTACT_STORE,
+        url: $(this).attr('action'),
         type: 'POST',
         data: formData,
         processData: false,
@@ -17,11 +17,11 @@ contactFormSave.on('submit', function(e) {
         success: function(response) {
             $("#contact_model").attr("style", "display:none");
             $(".background_overlay").attr("style", "display:none");
-            showToast(response.message, 'info');
+            tostMessage(response.message, 'info');
             fetchContacts()
         },
         error: function(error) {
-            
+            tostMessage(error.responseJSON.message, 'error');
         }
     });
     

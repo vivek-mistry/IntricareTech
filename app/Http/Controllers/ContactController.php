@@ -15,9 +15,13 @@ class ContactController extends Controller
     }
 
     public function index() {
+        return view('contact.index');
+    }
+
+    public function ajaxList(Request $request) {
         $contacts = $this->contactRepository->getPaginate(10);
 
-        $html = view('contact.index', compact('contacts'))->render();
+        $html = view('contact.list', compact('contacts'))->render();
 
         $pagination = $contacts->links()->render();
 

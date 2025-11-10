@@ -1,6 +1,6 @@
 fetchContacts();
 
-var CONTACT_BODY = $('#contact_tbody');
+var CONTACT_BODY = $('#contact_datatable_body');
 var PAGINATION = $('#pagination');
 
 window.fetchContacts = fetchContacts;
