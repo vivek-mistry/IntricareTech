@@ -18,6 +18,7 @@
                         <table id="contact_datatable" class="table table-striped dt-responsive nowrap w-100">
                             <thead>
                                 <tr>
+                                    <th></th>
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Phone</th>

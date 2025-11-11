@@ -1,5 +1,9 @@
 @forelse ($contacts as $contact)
     <tr>
+        <td>
+            <x-backend.avatar-image imageurl="{{ $contact->image_url }}" errorimage="{{ $contact->error_image }}" />
+            <!-- {{ $contact->image_url  }} -->
+        </td>
         <td>{{ $contact->name }}</td>
         <td>{{ $contact->email }}</td>
         <td>{{ $contact->phone }}</td>
@@ -11,6 +15,6 @@
     </tr>
 @empty
     <tr>
-        <td colspan="5" class="text-center">No contacts found</td>
+        <td colspan="6" class="text-center">No contacts found</td>
     </tr>
 @endforelse

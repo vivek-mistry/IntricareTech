@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e27ad1b28c2bd5614084063495902421",
+    "content-hash": "18ddd844aab83bffca8bb1c5db746092",
     "packages": [
         {
             "name": "brick/math",
@@ -5822,6 +5822,73 @@
                 "source": "https://github.com/tijsverkoyen/CssToInlineStyles/tree/v2.3.0"
             },
             "time": "2024-12-21T16:25:41+00:00"
+        },
+        {
+            "name": "vivek-mistry/facade-maker",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vivek-mistry/facade-maker.git",
+                "reference": "735ce7782452c59eba500ebb9fc148fb8c6ba892"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vivek-mistry/facade-maker/zipball/735ce7782452c59eba500ebb9fc148fb8c6ba892",
+                "reference": "735ce7782452c59eba500ebb9fc148fb8c6ba892",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.2||^8.3||^8.4"
+            },
+            "require-dev": {
+                "larastan/larastan": "^2.9||^3.0",
+                "orchestra/testbench": "^10.0.0||^9.0.0",
+                "pestphp/pest": "^3.8",
+                "pestphp/pest-plugin-arch": "^3.0",
+                "pestphp/pest-plugin-laravel": "^3.0",
+                "phpstan/extension-installer": "^1.3||^2.0",
+                "phpstan/phpstan-deprecation-rules": "^1.1||^2.0",
+                "phpstan/phpstan-phpunit": "^1.3||^2.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "VivekMistry\\FacadeMaker\\FacadeServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "VivekMistry\\FacadeMaker\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Vivek Mistry",
+                    "email": "vickymistry1818@gmail.com",
+                    "role": "Laravel Developer"
+                }
+            ],
+            "description": "Laravel package using for creating a new facade and it's structure.",
+            "homepage": "https://github.com/vivek-mistry/facade-maker",
+            "keywords": [
+                "facade",
+                "facade-maker",
+                "interface",
+                "laravel",
+                "laravel-facade",
+                "php"
+            ],
+            "support": {
+                "issues": "https://github.com/vivek-mistry/facade-maker/issues",
+                "source": "https://github.com/vivek-mistry/facade-maker/tree/1.0.0"
+            },
+            "time": "2025-05-03T09:16:38+00:00"
         },
         {
             "name": "vivek-mistry/repository-interface",

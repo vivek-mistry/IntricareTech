@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('profile_image')->nullable();
             $table->string('document_file')->nullable();
             $table->json('contact_custom_fields')->nullable();
+            $table->string('status', 11)->default('active');
             $table->timestamps();
         });
     }

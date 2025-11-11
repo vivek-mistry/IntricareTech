@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Facades\FileUpload;
 use App\Models\Contact;
 use App\Repositories\Interface\ContactRepositoryInterface;
 use Illuminate\Http\Request;
@@ -47,7 +48,16 @@ class ContactController extends Controller
             // 'contact_custom_fields' => 'required',
         ]);
 
-        $contact = $this->contactRepository->create($request->all());
+        $data = $request->all();
+        if($request->hasFile('profile_image')) {
+            $data['profile_image'] = FileUpload::upload(Contact::FOLDER_NAME, $request->file('profile_image'));
+        }
+
+        if($request->hasFile('document_file')) {
+            $data['document_file'] = FileUpload::upload(Contact::FOLDER_NAME, $request->file('document_file'));
+        }
+
+        $contact = $this->contactRepository->create($data);
 
         return response()->json([
             'success' => true,
@@ -83,7 +93,16 @@ class ContactController extends Controller
             // 'contact_custom_fields' => 'required',
         ]);
 
-        $contact = $this->contactRepository->update($contact, $request->all());
+        $data = $request->all();
+        if($request->hasFile('profile_image')) {
+            $data['profile_image'] = FileUpload::upload(Contact::FOLDER_NAME, $request->file('profile_image'));
+        }
+
+        if($request->hasFile('document_file')) {
+            $data['document_file'] = FileUpload::upload(Contact::FOLDER_NAME, $request->file('document_file'));
+        }
+
+        $contact = $this->contactRepository->update($contact, $data);
 
         return response()->json([
             'success' => true,
