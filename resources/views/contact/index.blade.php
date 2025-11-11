@@ -23,6 +23,7 @@
                                     <th>Email</th>
                                     <th>Phone</th>
                                     <th>Gender</th>
+                                    <th>Status</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>

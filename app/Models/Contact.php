@@ -11,7 +11,7 @@ class Contact extends Model
 {
     protected $table = 'contacts';
 
-    protected $fillable = ['name', 'email', 'phone', 'gender', 'profile_image', 'document_file', 'contact_custom_fields'];
+    protected $fillable = ['name', 'email', 'phone', 'gender', 'profile_image', 'document_file', 'contact_custom_fields', 'status'];
 
     protected $casts = [
         'contact_custom_fields' => 'array',
