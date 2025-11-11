@@ -15,7 +15,8 @@
                                     data-bs-toggle="modal" data-bs-target="#contactCreateModal" />
                             </div>
                         </div>
-                        <table id="contact_datatable" class="table table-striped dt-responsive nowrap w-100">
+                        <div class="table-responsive">
+                            <table id="contact_datatable" class="table table-striped dt-responsive nowrap w-100">
                             <thead>
                                 <tr>
                                     <th></th>
@@ -24,6 +25,9 @@
                                     <th>Phone</th>
                                     <th>Gender</th>
                                     <th>Status</th>
+                                    <th>
+                                        Custom Fields
+                                    </th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -31,6 +35,7 @@
                                 
                             </tbody>
                         </table>
+                        </div>
 
                         <div id="pagination">
 

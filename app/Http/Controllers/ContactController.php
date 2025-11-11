@@ -49,6 +49,16 @@ class ContactController extends Controller
         ]);
 
         $data = $request->all();
+
+        $contactCustomFields = [];
+        if($request->has('field_name')) {
+            foreach ($request->field_name as $key => $value) {
+                $contactCustomFields[$request->field_value[$key]] = $value;
+            }
+        }
+        
+
+        $data['contact_custom_fields'] = $contactCustomFields;
         if($request->hasFile('profile_image')) {
             $data['profile_image'] = FileUpload::upload(Contact::FOLDER_NAME, $request->file('profile_image'));
         }
@@ -94,6 +104,17 @@ class ContactController extends Controller
         ]);
 
         $data = $request->all();
+
+        $contactCustomFields = [];
+        if($request->has('field_name')) {
+            foreach ($request->field_name as $key => $value) {
+                $contactCustomFields[$request->field_value[$key]] = $value;
+            }
+        }
+        
+
+        $data['contact_custom_fields'] = $contactCustomFields;
+
         if($request->hasFile('profile_image')) {
             $data['profile_image'] = FileUpload::upload(Contact::FOLDER_NAME, $request->file('profile_image'));
         }

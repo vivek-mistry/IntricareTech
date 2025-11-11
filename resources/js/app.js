@@ -18,3 +18,6 @@ import 'select2-bootstrap-5-theme/dist/select2-bootstrap-5-theme.min.css';
 window.DataTable = DataTable;
 
 import 'jquery-validation';
+import Alpine from 'alpinejs';
+window.Alpine = Alpine;
+Alpine.start();

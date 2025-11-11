@@ -55,9 +55,29 @@
 </div>
 
 
-<div class="mb-3">
+<!-- <div class="mb-3">
     <label for="contact_custom_fields" class="form-label">Contact Custom Fields</label>
     <input type="text" class="form-control" name="contact_custom_fields">
+</div> -->
+<div class="mb-3" x-data="{ customFields: [{ name: '', value: '' }] }">
+    <div class="border-t border-gray-200 dark:border-gray-700 pt-4">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+            <h3 class="text-sm font-medium text-gray-700 ">Custom Fields</h3>
+            <button type="button" @click="customFields.push({ name: '', value: '' })"
+                class="btn btn-primary  rounded-pill">+ Add Field</button>
+        </div>
+
+        <template x-for="(field, index) in customFields" :key="index">
+            <div class="d-flex gap-2 mb-2">
+                <input type="text" x-model="field.name" name="field_name[]" placeholder="Field Name"
+                    class="form-control">
+                <input type="text" x-model="field.value" name="field_value[]" placeholder="Field Value"
+                    class="form-control">
+                <button type="button" @click="customFields.splice(index, 1)"
+                    class="btn btn-danger  rounded-pill">&times;</button>
+            </div>
+        </template>
+    </div>
 </div>
 
 
