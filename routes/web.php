@@ -14,4 +14,6 @@ Route::prefix('/')->group(function () {
     Route::delete('/destroy/{contact}', [ContactController::class, 'destroy'])->name('contact.destroy');
     Route::get('/edit/{contact}', [ContactController::class, 'edit'])->name('contact.edit');
     Route::post('/update/{contact}', [ContactController::class, 'update'])->name('contact.update');
+    Route::get('/dropdown/{id}', [ContactController::class, 'dropdown'])->name('contact.dropdown');
+    Route::post('/merge', [ContactController::class, 'contactMerge'])->name('contact.merge');
 });

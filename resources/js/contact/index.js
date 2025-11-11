@@ -80,3 +80,69 @@ $(document).on('click', '.remove_contact', async function() {
         }
     });
 });
+
+var contactMergeModal = $("#contactMergeModal");
+var contactMergeForm = $("#contactMergeForm");
+var slave_contact_id = "";
+
+contactMergeModal.on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget); // Button that triggered the modal
+    var contact_id = button.data('contact_id');
+    slave_contact_id = contact_id;
+    $.ajax({
+        url: ROUTE_CONTACT_DROPDOWN.replace(':id', contact_id),
+        type: 'GET',
+        dataType: "json",
+        headers: {
+            "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+        },
+        success: function (response) {
+            console.log(response);
+            contactMergeModal.find('#master_contact').html(response);
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+});
+
+var forma_data = {};
+var master_contact_id = "";
+contactMergeForm.on('submit', async function(e) {
+    e.preventDefault();
+    master_contact_id = contactMergeModal.find('#master_contact').val();
+    forma_data = {
+        master_contact_id: master_contact_id,
+        slave_contact_id: slave_contact_id,
+    }
+    // console.log(forma_data)
+    contactMergeModal.modal('hide');
+    showConfirmationModal({
+        title: 'Merge Contact',
+        message: 'Are you sure you want to merge this contact?',
+        confirmText: 'Merge',
+        cancelText: 'Cancel',
+        onConfirm: async function() {
+            // console.log(forma_data)
+            $.ajax({
+                url: ROUTE_CONTACT_MERGE,
+                type: 'POST',
+                dataType: "json",
+                data: forma_data,
+                headers: {
+                    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+                },
+                success: function (response) {
+                    fetchContacts();
+                    contactMergeModal.modal('hide');
+                    tostMessage(response.message, 'success');
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        }
+    });
+    
+    
+});

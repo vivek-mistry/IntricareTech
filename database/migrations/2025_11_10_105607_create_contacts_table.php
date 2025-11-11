@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string('document_file')->nullable();
             $table->json('contact_custom_fields')->nullable();
             $table->string('status', 11)->default('active');
+            $table->foreignId('merged_into_id')->nullable()->constrained('contacts')->nullOnDelete();
+            $table->json('merged_data_backup')->nullable();
             $table->timestamps();
         });
     }

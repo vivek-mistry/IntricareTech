@@ -55,6 +55,10 @@
         @include('contact.form')
     </x-backend.modal>
 
+    <x-backend.modal id="contactMergeModal" title="Contact Merge" form="contactMergeForm" method="POST" scrollable="false" size="modal-lg">
+        @include('contact.merge_form')
+    </x-backend.modal>
+
 
     @endsection
 
@@ -64,6 +68,8 @@
     var ROUTE_CONTACT_DELETE = "{{ route('contact.destroy', ['contact' => ':id']) }}";
     var ROUTE_CONTACT_EDIT = "{{ route('contact.edit', ['contact' => ':id']) }}";
     var ROUTE_CONTACT_UPDATE = "{{ route('contact.update', ['contact' => ':id']) }}";
+    var ROUTE_CONTACT_DROPDOWN = "{{ route('contact.dropdown', ['id' => ':id']) }}";
+    var ROUTE_CONTACT_MERGE = "{{ route('contact.merge') }}";
     </script>
 
     @vite(['resources/js/contact/index.js', 'resources/js/contact/add-edit.js'])

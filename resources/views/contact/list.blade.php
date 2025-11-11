@@ -23,7 +23,11 @@
     <td>
         @if ($contact->contact_custom_fields)
         @foreach ($contact->contact_custom_fields as $key => $value)
-        <span class="badge bg-primary">{{ $key }}: {{ $value }}</span><br />
+            @if(is_array($value))
+            <span class="badge bg-primary">{{ $key }}: {{ implode(',', $value) }}</span><br />
+            @else
+            <span class="badge bg-primary">{{ $key }}: {{ $value }}</span><br />
+            @endif
         @endforeach
         @endif
     </td>
@@ -32,7 +36,7 @@
             <x-backend.button ui="flat" colorType="primary" type="button" label="Edit" data-contact_id="{{ $contact->id }}" data-bs-toggle="modal" data-bs-target="#contactEditModal" />
             <x-backend.button ui="flat" colorType="danger" type="button" label="Delete" data-contact_id="{{ $contact->id }}" class="remove_contact" />
             @if ($contact->status === 'active')
-            <x-backend.button ui="flat" colorType="pink" type="button" label="Merge" data-contact_id="{{ $contact->id }}" class="merge_contact" />
+            <x-backend.button ui="flat" colorType="pink" type="button" label="Merge" data-contact_id="{{ $contact->id }}" class="merge_contact" data-bs-toggle="modal" data-bs-target="#contactMergeModal" />
             @else
             <x-backend.button ui="flat" colorType="light" type="button" label="Merged" data-contact_id="{{ $contact->id }}" />
             @endif

@@ -20,7 +20,7 @@ class ContactSeeder extends Seeder
 
         $contacts = [];
 
-        for ($i = 0; $i < 100; $i++) {
+        for ($i = 0; $i < 15; $i++) {
             $contacts[] = [
                 'name' => $faker->name(),
                 'email' => $faker->unique()->safeEmail(),
